@@ -1,0 +1,66 @@
+#Making a PB&J sandwich -- still a work in progress
+
+bread = 20
+pb = 11
+jelly = 4
+
+
+# First Goal: Create a program that can tell you whether or not you can make a peanut butter and jelly sandwich
+def make_pbj_one(bread, pb, jelly):
+    if bread >= 2 and pb >= 1 and jelly >= 1:
+        print "You can make a PB&J sandwich!"
+    else:
+        print "Looks like you can't have lunch today."
+print make_pbj_one(bread, pb, jelly)
+
+
+# Second Goal: Modify that program to tell you: if you can make a sandwich, how many you can make
+def make_pbj_two(bread, pb, jelly):
+    if bread >= 2 and pb >= 1 and jelly >= 1:
+        sandwiches = bread/2 #Assuming bread is the main variable
+        print "You can make",sandwiches, "sandwiches."    
+    else:
+        print "Looks like you can't have lunch today."
+print make_pbj_two(bread, pb, jelly)
+
+
+# Third Goal: Modify that program to allow you to make open-face sandwiches if you have an odd number of slices of bread
+def make_pbj_three(bread, pb, jelly):
+    if bread >= 2 and pb >= 1 and jelly >= 1:
+        sandwiches = bread/2
+        if bread % 2 != 0:
+                print "You can make" ,sandwiches, "whole sandwiches, but you can also make some open face sandwiches."
+        else:
+            print "You can make",sandwiches, "sandwiches."
+    else:
+        print "Looks like you can't have lunch today."
+print make_pbj_three(bread, pb, jelly)
+
+
+# Fourth Goal: Modify that program to tell you: if you're missing ingredients, which ones you need to be able to make your sandwiches
+def make_pbj_four(bread, pb, jelly):
+    if bread <= 2:
+        print "You don't have enough bread."
+    elif pb < 1:
+        print "You don't have enough peanut butter."
+    elif jelly < 1:
+        print "You don't have enough jelly."
+    else:
+        print "You can make a PB&J sandwich!"
+print make_pbj_four(bread, pb, jelly)
+
+
+# Fifth Goal: Modify that program to tell you: if you have enough bread and peanut butter but no jelly, that you can make a peanut butter sandwich but you should take a hard, honest look at your life.  Wow, your program is kinda judgy.
+def make_pbj_five(bread, pb, jelly):
+    if bread >= 2 and pb >= 1 and jelly >= 1:
+        sandwiches = bread/2 #total sandwiches
+        pb_sandwich = sandwiches - jelly #total number of pb sandwiches
+        no_jelly = sandwiches - pb_sandwich #number of sandwiches w/pb after PB&J
+        if bread >= 2 and pb >= 1 and jelly == 0:
+            print "You can't make a PB&J, but you can make a peanut butter sandwich. But you can make" ,pb_sandwich, "sandwiches."
+        elif bread/2 + pb > jelly:
+            print "You can make",sandwiches, " PB&J sandwiches or", pb_sandwich, " peanut butter sandwiches.", no_jelly
+    else:
+        print "Looks like you can't have lunch today."
+print make_pbj_five(bread, pb, jelly)
+          
